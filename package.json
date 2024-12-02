@@ -1,0 +1,29 @@
+{
+  "name": "rustpremiumlauncher",
+  "version": "1.0.6",
+  "main": "app/main.js",
+  "author": "dFxPhoeniX",
+  "homepage": "https://dfxphoenix.xyz",
+  "scripts": {
+    "start": "electron app/main.js",
+    "dist": "electron-builder build",
+    "dist:win": "electron-builder build -w",
+    "dist:mac": "electron-builder build -m",
+    "dist:linux": "electron-builder build -l",
+    "dist:ubuntu": "electron-builder build -l deb"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^25.0.5"
+  },
+  "keywords": [
+    "desktop",
+    "electron"
+  ],
+  "dependencies": {
+    "discord-rpc-patch": "^4.0.1",
+    "ejs": "^3.1.10",
+    "ejs-electron": "^3.0.0",
+    "electron-updater": "^6.3.4"
+  }
+}

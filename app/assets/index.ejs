@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="dFxPhoeniX">
+	<title><%= name %></title>
+	<link rel="icon" href="../uploads/<%= favicon %>">
+	<!-- font icons -->
+	<link rel="stylesheet" href="./vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="./vendors/themify-icons/css/themify-icons.css">
+	<!-- Bootstrap + Custom main styles -->
+	<link rel="stylesheet" href="./css/custom-<%= color %>.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="1">
+
+	<!-- page Navigation -->
+	<nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" style="background-color: rgba(0, 0, 0, 0.2);" data-spy="affix" data-offset-top="10">
+		<div class="container">
+			<a class="navbar-brand">
+				<img src="../uploads/<%= logo %>" style="width: 20%;" alt="">
+			</a>
+			<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<% if(socialIcons) { %>
+						<% if(socialSteam || socialDiscord || socialYoutube || socialFacebook || socialInstagram || socialX || socialTiktok) { %>
+							<li class="nav-item mt-2 mb-1 mr-2">
+								<% if(socialSteam) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkSteam %>">
+										<i class="fa-brands fa-steam"></i>
+									</a>
+								<% } %>
+								<% if(socialDiscord) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkDiscord %>">
+										<i class="fa-brands fa-discord"></i>
+									</a>
+								<% } %>
+								<% if(socialYoutube) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkYoutube %>">
+										<i class="fa-brands fa-youtube"></i>
+									</a>
+								<% } %>
+								<% if(socialFacebook) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkFacebook %>">
+										<i class="fa-brands fa-facebook"></i>
+									</a>
+								<% } %>
+								<% if(socialInstagram) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkInstagram %>">
+										<i class="fa-brands fa-instagram"></i>
+									</a>
+								<% } %>
+								<% if(socialX) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkX %>">
+										<i class="fa-brands fa-x-twitter"></i>
+									</a>
+								<% } %>
+								<% if(socialTiktok) { %>
+									<a class="btn btn-outline-primary btn-sm rounded" href="<%= linkTiktok %>">
+										<i class="fa-brands fa-tiktok"></i>
+									</a>
+								<% } %>
+							</li>
+						<% } %>
+					<% } else { %>
+						<% if(socialSteam) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkSteam %>">
+									Steam
+								</a>
+							</li>
+						<% } %>
+						<% if(socialDiscord) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkDiscord %>">
+									Discord
+								</a>
+							</li>
+						<% } %>
+						<% if(socialYoutube) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkYoutube %>">
+									Youtube
+								</a>
+							</li>
+						<% } %>
+						<% if(socialFacebook) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkFacebook %>">
+									Facebook
+								</a>
+							</li>
+						<% } %>
+						<% if(socialInstagram) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkInstagram %>">
+									Instagram
+								</a>
+							</li>
+						<% } %>
+						<% if(socialX) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkX %>">
+									X
+								</a>
+							</li>
+						<% } %>
+						<% if(socialTiktok) { %>
+							<li class="nav-item">
+								<a class="nav-link" href="<%= linkTiktok %>">
+									TikTok
+								</a>
+							</li>
+						<% } %>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Of Navigation -->
+
+	<!-- Page Header -->
+	<header class="header" <% if(header) { %>style="background: url('../uploads/<%= header %>');"<% } %>>
+		<div class="overlay">
+			<div class="container mr-2 ml-2" style="margin-top: 160px;">
+				<h1 class="subtitle"><%= name %></h1>
+			</div>
+			<div class="container" style="overflow-x: hidden; overflow-y: auto; margin: 40px;">
+				<div class="row justify-content-center" id="servers-container">
+					<% Object.keys(serversList).forEach((server) => { %>
+						<div class="col-md-2 p-3 m-2 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+							<h6 class="mb-1" style="overflow-x: auto; overflow-y: hidden;"><%= serversList[server].ServerName %> (v<span id="<%= server %>-version">0</span>)</h6>
+							<p class="mb-2"><span id="<%= server %>-online">0</span> online</p>
+							<a class="mb-2 btn btn-outline-primary" href="steam://run/252490//+connect <%= serversList[server].ServerIP %>" id="button" data-key="<%= server %>">Connect</a>
+						</div>
+					<% }); %>
+				</div>
+			</div>
+			<% if(autoUpdater) { %>
+				<div class="container m-5">
+					<div class="row justify-content-center">
+						<div class="text-center">
+							<a href="<%= launcherURL %>"><span id="messages">Check for update.</span></a>
+						</div>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	</header>
+	<!-- End Of Page Header -->
+	
+	<!-- core -->
+	<script src="./vendors/jquery/jquery-3.4.1.js"></script>
+	<script src="./vendors/bootstrap/bootstrap.bundle.js"></script>
+
+	<!-- bootstrap 3 affix -->
+	<script src="./vendors/bootstrap/bootstrap.affix.js"></script>
+
+	<!-- Isotope -->
+	<script src="./vendors/isotope/isotope.pkgd.js"></script>
+
+	<!-- Custom js -->
+	<script src="./js/custom.js"></script>
+
+</body>
+</html>

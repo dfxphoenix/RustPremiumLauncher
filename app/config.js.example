@@ -1,0 +1,42 @@
+module.exports = {
+	name: 'Rust Premium Launcher', // The name of launcher
+	color: 'orange', // The color of launcher. Select from: orange, red, blue, green, yellow, purple, pink
+	header: '', // The header image of launcher. You have to upload the image in the uploads folder, then pass the name of the image here. If it is blank, the displayed image will be the default
+	favicon: 'favicon.ico', // The favicon of launcher. You have to upload the image in the uploads folder, then pass the name of the image here
+	logo: 'logo.png', // The logo of launcher. You have to upload the image in the uploads folder, then pass the name of the image here
+	discordClientId: '', // Client ID from https://discord.com/developers
+	discordSlogan: 'Best Rust Launcher!', // The Discord slogan of launcher
+	discordLauncherImage: 'launcher-logo', // The Discord image name of launcher
+	defaultServerName: 'Nothing', // The default name of server
+	defaultServerImage: 'default-logo', // The default Discord image name of server
+	launcherURL: 'https://rustpremiumlauncher.com', // The link of launcher
+	autoUpdaterDownloadURL: 'https://rustpremiumlauncher.com/download', // The link of auto updater download location
+	linkSteam: 'https://steamcommunity.com/id/dfxphoenix', // The link of Steam group
+	linkDiscord: 'https://discord.dfxphoenix.xyz', // The link of Discord server
+	linkYoutube: 'https://youtube.com/dFxPhoeniX', // The link of Youtube channel
+	linkFacebook: 'https://facebook.com/dFxPhoeniX', // The link of Facebook page
+	linkInstagram: 'https://instagram.com/waltercurelea', // The link of Instagram account
+	linkX: 'https://x.com/waltercurelea', // The link of X account
+	linkTiktok: 'https://tiktok.com/@waltercurelea', // The link of TikTok account
+	autoUpdater: true, // Enable/Disable the auto updater
+	discordPresence: true, // Enable/Disable the Discord presence
+	socialIcons: true, // Enable/Disable the social icons
+
+	// Enable/Disable socials
+	socialSteam: true,
+	socialDiscord: true,
+	socialYoutube: true,
+	socialFacebook: true,
+	socialInstagram: false,
+	socialX: false,
+	socialTiktok: false,
+
+	serversList: {
+		RustServer: {
+			ServerName: 'Rust Server', // The name of server
+			ServerIP: 'connect.rustserver.com:28017', // The IP of server
+			discordServerImage: 'server-logo', // The Discord image name of server
+			rustserversKey: '' // API Key from https://rust-servers.net
+		}
+	}
+};

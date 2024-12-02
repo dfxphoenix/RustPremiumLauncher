@@ -1,0 +1,57 @@
+appId: 'rustpremiumlauncher'
+productName: 'Rust Premium Launcher'
+artifactName: 'Rust-Premium-Launcher-setup-${version}.${ext}'
+
+copyright: 'Copyright © dFxPhoeniX'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.git,.gitattributes,.nvmrc,app/dev-app-update.yml,app/config.js.example}'
+
+publish:
+  provider: 'generic'
+  url: 'https://rustpremiumlauncher.com/download'
+
+# Windows Configuration
+win: 
+  target: 
+    - target: 'nsis'
+      arch:
+        - 'x64'
+        - 'ia32'
+        - 'arm64'
+
+# Windows Installer Configuration
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+
+# macOS Configuration
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  category: 'public.app-category.games'
+
+# Linux Configuration
+linux: 
+  target:
+    - target: 'tar.gz'
+      arch:
+        - 'x64'
+        - 'arm64'
+  maintainer: 'dFxPhoeniX'
+  vendor: 'dFxPhoeniX'
+  synopsis: 'Rust Premium Launcher'
+  description: 'An app with which you can connect to our Rust Servers.'
+  category: 'Game'
+
+directories:
+  buildResources: 'build'
+  output: 'dist'
