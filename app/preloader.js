@@ -3,6 +3,11 @@ const { ipcRenderer } = require('electron');
 const config = require("./config");
 
 window.addEventListener('DOMContentLoaded', () => {
+	ipcRenderer.on('message', (event, text) => {
+		var message = document.getElementById('message');
+		message.innerHTML = text;
+	});
+
 	Object.keys(config.serversList).forEach((serverKey) => {
 		ipcRenderer.on(serverKey + '-online', (event, text) => {
 			var online = document.getElementById(serverKey + '-online');
